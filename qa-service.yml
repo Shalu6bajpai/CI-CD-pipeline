@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: qa-svc-todo
+  namespace: apistone-qa
+spec:
+  selector:
+    app: web
+  ports:
+   - protocol: TCP
+     port: 8000
+     targetPort: 3000
+  type: LoadBalancer

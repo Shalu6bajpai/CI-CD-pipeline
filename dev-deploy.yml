@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-todo
+  labels:
+    app: web
+  namespace: apistone-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers: 
+      - image: 904089174636.dkr.ecr.us-east-1.amazonaws.com/fast-apistone-t2:dev-latest
+        name: dev-todo
+        imagePullPolicy: Always
+ 
+        ports:
+        - containerPort: 3000
